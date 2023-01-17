@@ -1,0 +1,96 @@
+package com.example.businesscardshank
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.businesscardshank.ui.theme.BusinessCardShankTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BusinessCardShankTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Card()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Card() {
+    Column(
+        verticalArrangement= Arrangement.Center,
+    horizontalAlignment= Alignment.CenterHorizontally,
+    ){
+        Box(
+            modifier = Modifier
+                .background(color = Color.Red)
+                .height(80.dp)
+                .width(80.dp),
+        ){}
+        Text("Ankit Barthwal")
+        Text("Android Developer")
+    }
+    Row(
+        horizontalArrangement= Arrangement.Center,
+    verticalAlignment= Alignment.Bottom,
+    ){
+       Column(){
+           Row(){
+               Box(
+                   modifier = Modifier
+                       .background(color = Color.Red)
+                       .height(15.dp)
+                       .width(15.dp),
+               ){}
+               Spacer(modifier = Modifier.padding(end = 15.dp))
+               Text("+91-8006361885")
+           }
+           Row(){
+               Box(
+                   modifier = Modifier
+                       .background(color = Color.Red)
+                       .height(15.dp)
+                       .width(15.dp),
+               ){}
+               Spacer(modifier = Modifier.padding(end = 15.dp))
+               Text("DevAnkit@android.com")
+           }
+           Row(){
+               Box(
+                   modifier = Modifier
+                       .background(color = Color.Red)
+                       .height(15.dp)
+                       .width(15.dp),
+               ){}
+               Spacer(modifier = Modifier.padding(end = 15.dp))
+               Text("facebook.com/devAnkitAndroid")
+           }
+       }
+    }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun DefaultPreview() {
+    BusinessCardShankTheme {
+        Card()
+    }
+}
